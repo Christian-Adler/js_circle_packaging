@@ -1,7 +1,7 @@
 let counter = 0;
 
 class Circle {
-  constructor({x = 0, y = 0, r = 1}) {
+  constructor({x = 0, y = 0, r = 2}) {
     this.x = x;
     this.y = y;
     this.r = r;

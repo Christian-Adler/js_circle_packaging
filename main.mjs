@@ -35,10 +35,20 @@ const tryCreateCircle = () => {
   return null;
 }
 
+let circleAttempts = 0;
+
 const update = () => {
-  const c = tryCreateCircle();
-  if (c)
-    circles.push(c);
+  let cCount = 0;
+  while (cCount < 10 && circleAttempts < 1000) {
+    circleAttempts++;
+    const c = tryCreateCircle();
+    if (c) {
+      circles.push(c);
+      cCount++;
+    }
+  }
+  if (circleAttempts < 1000)
+    circleAttempts = 0;
 
   ctx.clearRect(0, 0, worldWidth, worldHeight);
 
