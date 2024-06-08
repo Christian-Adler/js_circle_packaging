@@ -23,7 +23,7 @@ const updateWorldSettings = () => {
 
 updateWorldSettings();
 
-const circles = [];
+let circles = [];
 let maskData = null;
 
 const tryCreateCircle = (maskImgData) => {
@@ -67,7 +67,10 @@ const update = () => {
 
   if (worldChanged) {
     worldChanged = false;
+    circles = [];
+    circleAttempts = 0;
 
+    maskCtx.save();
     maskCtx.translate(worldWidth / 2, worldHeight / 2);
     maskCtx.scale(2, 4);
     maskCtx.fillStyle = 'rgba(255,0,0,1)';
@@ -82,7 +85,6 @@ const update = () => {
 
     maskData = maskCtx.getImageData(0, 0, worldWidth, worldHeight).data;
   }
-  maskCtx.save();
 
 
   let cCount = 0;
